@@ -9,7 +9,7 @@
 if (($_POST) || (isset($_POST))) {
 
     $request = json_decode(file_get_contents("php://input"));
-    var_dump($result); exit;
+    var_dump($request); exit;
     switch ($request->action) {
         case "currency_check" :
             $result = convert($request->data->from ,$request->data->to );
