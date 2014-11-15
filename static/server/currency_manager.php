@@ -9,7 +9,6 @@
 if (($_POST) || (isset($_POST))) {
 
     $request = json_decode(file_get_contents("php://input"));
-    var_dump($request); exit;
     switch ($request->action) {
         case "currency_check" :
             $result = convert($request->data->from ,$request->data->to );
@@ -22,9 +21,6 @@ if (($_POST) || (isset($_POST))) {
 
 
 function convert($from , $to){
-
-
-
     $amount = 1;
     $resultArray = array();
     $url = 'http://rate-exchange.appspot.com/currency?from='.$from.'&to='.$to;
