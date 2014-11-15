@@ -21,6 +21,7 @@ if (($_POST) || (isset($_POST))) {
 
 
 function convert($from , $to){
+    /*
     $amount = 1;
     $resultArray = array();
     $url = 'http://rate-exchange.appspot.com/currency?from='.$from.'&to='.$to;
@@ -32,7 +33,7 @@ function convert($from , $to){
     $response = curl_exec($ch);
     curl_close($ch);
     $resultArray['google'] = json_decode(preg_replace('/("\w+"):(\d+(\.\d+)?)/', '\\1:"\\2"', $response), true);
-
+    */
     $url = 'http://finance.yahoo.com/d/quotes.csv?f=l1d1t1&s='.$from.$to.'=X';
     $handle = fopen($url, 'r');
     if ($handle) {
