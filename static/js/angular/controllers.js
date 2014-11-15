@@ -155,6 +155,11 @@ mainController.controller('MainController', ['$rootScope' , '$scope' ,'$location
 
     }
 
+    $scope.stopBet = function(){
+        $scope.$broadcast('timer-stop');
+        $scope.bet.active = false;
+    }
+
     $scope.setCounter = function(seconds){
         console.log(seconds);
         $scope.countdown = seconds;

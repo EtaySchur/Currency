@@ -86,8 +86,11 @@
         </div>
     </div>
     <div align="center" class="button_placeholder">
-        <button ng-click="startBet()" ng-disabled="(tab !='to' && tab!='from') || bet.active" class="btn btn-primary">
+        <button ng-hide="bet.active" ng-click="startBet()" ng-disabled="(tab !='to' && tab!='from') || bet.active" class="btn btn-primary">
             Lets Bet
+        </button>
+        <button ng-show="bet.active" ng-click="stopBet()"  class="btn btn-primary">
+            Stop Bet
         </button>
     </div>
 
