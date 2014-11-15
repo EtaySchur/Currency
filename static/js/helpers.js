@@ -32,7 +32,7 @@ RestCallManager.prototype.post = function( callback , http , data , action ){
 }
 
 RestCallManager.prototype.getCurrency = function ( callback , http , data , action ){
-    http.post('static/server/currency_manager.php', {
+    http.post('/var/www/Currency/static/server/currency_manager.php', {
         action : action,
         data : data,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
