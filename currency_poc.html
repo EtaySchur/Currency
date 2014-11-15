@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="currencyPocApp" ng-controller="MainController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Currency POC </title>
+    <script src="static/js/jQuery/jquery-1.11.1.min.js"></script>
+    <script src="static/js/bootstrap/bootstrap.min.js"></script>
+    <script src="static/js/angular/angular.min.js"> </script>
+    <script src="static/js/angular/d3.js" charset="utf-8"></script>
+    <script src="static/js/angular/angular-animate.min.js"> </script>
+    <script src="static/js/angular/controllers.js"> </script>
+    <script src="static/js/angular/app.js"> </script>
+    <script src="static/js/helpers.js"> </script>
+    <script src="static/js/angular/timer.js"> </script>
+    <script src="static/js/angular/ui-bootstrap-tpls-0.11.2.min.js"> </script>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="static/css/bootstrap/bootstrap-theme.css">
+</head>
+<body>
+<div class="currency_car col-md-10 col-md-offset-1">
+    <div class="form-group col-md-6">
+        <label> From  </label>
+        <select  ng-model="currency.from" class="form-control">
+            <option value="USD"> US Dollar </option>
+            <option value="GBP"> Pound </option>
+            <option value="EUR"> Euro </option>
+
+        </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label> To  </label>
+        <select   ng-model="currency.to" class="form-control">
+            <option value="USD"> US Dollar </option>
+            <option value="GBP"> Pound </option>
+            <option value="EUR"> Euro </option>
+        </select>
+    </div>
+    <h3>
+        Exchange rate is {{currency.rate}} - {{currency.date}} - {{currency.time}}
+    </h3>
+    <div ng-click="tab = 'from'" ng-class="{'active': tab == 'from' }" class="from_section success col-md-5 selectable">
+        <div ng-show="currency.from == 'USD'" class="image_placeholder">
+            <img class="img img-circle" src="static/images/USD.jpg">
+        </div>
+        <div ng-show="currency.from == 'GBP'" class="image_placeholder">
+            <img class="img img-circle" src="static/images/GBP.jpg">
+        </div>
+        <div ng-show="currency.from == 'EUR'" class="image_placeholder">
+            <img class="img img-circle" src="static/images/EUR.jpg">
+        </div>
+    </div>
+
+    <div class="race_placeholder col-md-2">
+        <!--div align="center" class="row">
+            <div  style="-webkit-transform:scale('{{scaleParam}}')" class="circle" ng-style="!bet.active && winningStyle ||
+                  bet.active && {'background-color': 'green'}">   </div>
+        </div-->
+
+        <div align="center" class="row">
+                Set Timer <span  class="glyphicon glyphicon-time">
+                  </span>
+        </div>
+
+        <div class="row" align="center">
+            <div  class="btn-group" role="group" aria-label="...">
+                <button ng-disabled="bet.active" ng-disabled="bet.active" ng-style="countdown === 60 && {   'background' : '#428bca' }" ng-click="setCounter(60)" type="button" class="btn btn-default">1</button>
+                <button ng-disabled="bet.active" ng-style="countdown === 120 && {   'background' : '#428bca' }" ng-click="setCounter(120)" type="button" class="btn btn-default">2</button>
+                <button ng-disabled="bet.active" ng-style="countdown === 300 && {   'background' : '#428bca' }" ng-click="setCounter(300)" type="button" class="btn btn-default">5</button>
+                <button ng-disabled="bet.active" ng-style="countdown === 480 && {   'background' : '#428bca' }" ng-click="setCounter(480)" type="button" class="btn btn-default">8</button>
+                <button ng-disabled="bet.active" ng-style="countdown === 600 && {   'background' : '#428bca' }" ng-click="setCounter(600)" type="button" class="btn btn-default">10</button>
+
+            </div>
+            </div>
+
+    </div>
+    <div ng-click="tab = 'to'" ng-class="{'active': tab == 'to' }" class="from_section danger col-md-5 selectable">
+        <div ng-show="currency.to == 'USD'" class="image_placeholder">
+            <img class="img img-circle" src="static/images/USD.jpg">
+        </div>
+        <div ng-show="currency.to == 'GBP'" class="image_placeholder">
+            <img class="img img-circle" src="static/images/GBP.jpg">
+        </div>
+        <div ng-show="currency.to == 'EUR'" class="image_placeholder">
+            <img class="img img-circle" src="static/images/EUR.jpg">
+        </div>
+    </div>
+    <div align="center" class="button_placeholder">
+        <button ng-click="startBet()" ng-disabled="(tab !='to' && tab!='from') || bet.active" class="btn btn-primary">
+            Lets Bet
+        </button>
+    </div>
+
+
+    <timer autostart="false" ng-show="bet.active" ng-show="bet.active" interval="1000" countdown="countdown">{{minutes}} minutes {{seconds}} seconds.</timer>
+    <progress ng-show="bet.active" ng-class="{'active': bet.active }" class="progress-striped"><bar ng-repeat="bar in timerbar track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 100">{{bar.value}}%</span></bar></progress>
+    <progress ng-show="bet.active" ng-class="{'active': bet.active }" class="progress-striped"><bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></bar></progress>
+    <h3 ng-show="bet.active" align="center">
+        {{ progressText }}
+    </h3>
+    <h3 ng-show="bet.active" align="center">
+        {{ initRate }}
+    </h3>
+
+</div>
+
+</body>
+</html>

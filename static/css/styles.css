@@ -1,0 +1,83 @@
+html, body {height:100%;overflow:auto}
+
+.from_section  {
+    text-align: center;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    opacity : 0.9;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out; /* Safari */
+    -o-transition: all 0.3s ease-out; /* Safari */
+    -moz-transition: all 0.3s ease-out; /* Safari */
+
+}
+
+.success:hover{
+    opacity: 1 ;
+    background-color: #449d44;
+    -webkit-transform : scale(1.1);
+    -o-transform : scale(1.1);
+    -moz-transform : scale(1.1);
+    transform : scale(1.1);
+
+
+}
+
+.danger:hover{
+    opacity: 1 ;
+    background-color: #d9534f;
+    -webkit-transform : scale(1.1);
+    -o-transform : scale(1.1);
+    -moz-transform : scale(1.1);
+    transform : scale(1.1);
+
+
+}
+
+.active{
+    background: #428bca;
+}
+.success.active{
+    background-color: #449d44;
+}
+.danger.active{
+    background-color: #d9534f;
+}
+
+.selectable{
+    cursor: pointer;
+}
+
+.circle {
+    transition: all 0.3s ease-out;
+    -webkit-perspective: 800px;
+    -webkit-backface-visibility: hidden;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    /* width and height can be anything, as long as they're equal */
+}
+
+.chart {
+    background: #eee;
+    padding: 3px;
+}
+
+.chart div {
+    width: 0;
+    transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+}
+
+.chart div {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    padding: 3px;
+    margin: 5px;
+    color: white;
+    box-shadow: 2px 2px 2px #666;
+}
