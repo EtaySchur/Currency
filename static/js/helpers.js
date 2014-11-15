@@ -15,7 +15,7 @@ RestCallManager.prototype.post = function( callback , http , data , action ){
     console.log("post data");
     console.log(data);
 	$('html').css('cursor' , 'progress');
-	http.post('/var/www/Currency/static/server/currency_manager.php', {
+	http.post('http://ec2-54-76-168-99.eu-west-1.compute.amazonaws.com/static/server/currency_manager.php', {
 		action : action,
 		data : data,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -32,7 +32,7 @@ RestCallManager.prototype.post = function( callback , http , data , action ){
 }
 
 RestCallManager.prototype.getCurrency = function ( callback , http , data , action ){
-    http.post('/var/www/Currency/static/server/currency_manager.php', {
+    http.post('http://ec2-54-76-168-99.eu-west-1.compute.amazonaws.com/static/server/currency_manager.php', {
         action : action,
         data : data,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
