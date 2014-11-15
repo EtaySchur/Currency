@@ -7,6 +7,7 @@
  */
 
 if (($_POST) || (isset($_POST))) {
+    var_dump("SERVER !!"); exit;
     $request = json_decode(file_get_contents("php://input"));
     switch ($request->action) {
         case "currency_check" :
