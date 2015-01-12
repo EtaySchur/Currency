@@ -12,6 +12,7 @@ var RestCallManager = function( callback , http) {
 };
 
 RestCallManager.prototype.post = function( callback , http , data , action ){
+
     console.log("post data");
     console.log(data);
 	$('html').css('cursor' , 'progress');
